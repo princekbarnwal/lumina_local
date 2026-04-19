@@ -12,27 +12,39 @@ model User {
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
+
+  shops Shop[] // 👈 ADD THIS
 }
 
 model Shop {
-  id       Int    @id @default(autoincrement())
+  id       Int       @id @default(autoincrement())
   name     String
   ownerId  Int
+
+  owner    User      @relation(fields: [ownerId], references: [id])
+  products Product[] // 👈 ADD THIS
 }
 
 model Product {
   id      Int    @id @default(autoincrement())
   name    String
   shopId  Int
+
+  shop    Shop   @relation(fields: [shopId], references: [id])
+  reviews Review[]
 }
 
 model Review {
-  id              Int      @id @default(autoincrement())
-  productId       Int
-  userIdentifier  String
-  rating          Int
-  comment         String?
-  createdAt       DateTime @default(now())
+  id             Int      @id @default(autoincrement())
+  productId      Int
+  userIdentifier String
+  rating         Int
+  comment        String?
+  createdAt      DateTime @default(now())
+
+  product        Product  @relation(fields: [productId], references: [id])
+
+  @@unique([productId, userIdentifier])
 }
 
 model Sentiment {
