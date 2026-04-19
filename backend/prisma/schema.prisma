@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Shop {
+  id       Int    @id @default(autoincrement())
+  name     String
+  ownerId  Int
+}
+
+model Product {
+  id      Int    @id @default(autoincrement())
+  name    String
+  shopId  Int
+}
+
+model Review {
+  id              Int      @id @default(autoincrement())
+  productId       Int
+  userIdentifier  String
+  rating          Int
+  comment         String?
+  createdAt       DateTime @default(now())
+}
+
+model Sentiment {
+  id        Int    @id @default(autoincrement())
+  reviewId  Int
+  sentiment String
+}
