@@ -9,14 +9,14 @@ function ShopProductSelector({
   onProductChange,
 }) {
   return (
-    <section className="rounded-md border border-slate-200 bg-white p-4">
+    <section className="glass-panel p-4">
       <div className={`grid gap-4 ${typeof manualShopId === "undefined" ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">Shop</span>
+          <span className="mb-1 block text-sm font-bold text-slate-700">Shop</span>
           <select
             value={selectedShopId}
             onChange={(event) => onShopChange(event.target.value)}
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+            className="field"
           >
             <option value="">Select shop</option>
             {shops.map((shop) => (
@@ -29,22 +29,22 @@ function ShopProductSelector({
 
         {typeof manualShopId === "undefined" ? null : (
           <label className="block">
-            <span className="mb-1 block text-sm font-medium text-slate-700">Manual shop ID</span>
+            <span className="mb-1 block text-sm font-bold text-slate-700">Manual shop ID</span>
             <input
               value={manualShopId}
               onChange={(event) => onManualShopIdChange(event.target.value)}
               placeholder="Example: 1"
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+              className="field"
             />
           </label>
         )}
 
         <label className="block">
-          <span className="mb-1 block text-sm font-medium text-slate-700">Product</span>
+          <span className="mb-1 block text-sm font-bold text-slate-700">Product</span>
           <select
             value={selectedProductId}
             onChange={(event) => onProductChange(event.target.value)}
-            className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+            className="field"
           >
             <option value="">Select product</option>
             {products.map((product) => (

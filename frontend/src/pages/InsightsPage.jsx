@@ -51,10 +51,11 @@ function InsightsPage() {
   }, [selectedProductId]);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-semibold">Insights</h2>
-        <p className="text-sm text-slate-500">AI-generated positives, negatives, and actions.</p>
+        <p className="text-sm font-bold uppercase tracking-[0.22em] text-indigo-600">AI Insights</p>
+        <h2 className="page-title">Decision Brief</h2>
+        <p className="page-subtitle">AI-generated positives, negatives, and recommended actions.</p>
       </div>
 
       <ShopProductSelector
@@ -66,7 +67,7 @@ function InsightsPage() {
         onProductChange={setSelectedProductId}
       />
 
-      {error ? <div className="rounded-md bg-red-50 p-3 text-sm text-red-700">{error}</div> : null}
+      {error ? <div className="rounded-md bg-red-50 p-3 text-sm font-medium text-red-700">{error}</div> : null}
 
       <div className="grid gap-4 lg:grid-cols-3">
         <InsightList title="Positives" items={report?.positives} tone="green" />

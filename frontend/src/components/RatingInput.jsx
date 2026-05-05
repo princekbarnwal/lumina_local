@@ -8,7 +8,7 @@ function RatingInput({ value, onChange }) {
           key={rating}
           type="button"
           onClick={() => onChange(rating)}
-          className="rounded-md p-1 hover:bg-slate-100"
+          className="rounded-md p-1 transition duration-200 hover:-translate-y-0.5 hover:bg-amber-50"
           aria-label={`${rating} star rating`}
         >
           <Star

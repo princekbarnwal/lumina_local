@@ -79,10 +79,16 @@ function DashboardPage() {
   }, [products, selectedProductId]);
 
   return (
-    <div className="space-y-5">
-      <div>
-        <h2 className="text-lg font-semibold">Business Dashboard</h2>
-        <p className="text-sm text-slate-500">Select a shop and product to view live analytics.</p>
+    <div className="space-y-6">
+      <div className="flex flex-col gap-3 xl:flex-row xl:items-end xl:justify-between">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-indigo-600">Command Center</p>
+          <h2 className="page-title">Business Dashboard</h2>
+          <p className="page-subtitle">Select a shop and product to view live analytics, trends, and AI recommendations.</p>
+        </div>
+        <div className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm ring-1 ring-slate-200">
+          Live product intelligence
+        </div>
       </div>
 
       <ShopProductSelector
@@ -94,8 +100,8 @@ function DashboardPage() {
         onProductChange={setSelectedProductId}
       />
 
-      {error ? <div className="rounded-md bg-red-50 p-3 text-sm text-red-700">{error}</div> : null}
-      {loading ? <div className="rounded-md bg-white p-4 text-sm text-slate-500">Loading dashboard...</div> : null}
+      {error ? <div className="rounded-md bg-red-50 p-3 text-sm font-medium text-red-700">{error}</div> : null}
+      {loading ? <div className="glass-panel animate-pulse p-4 text-sm text-slate-500">Loading dashboard...</div> : null}
 
       <div className="grid gap-4 md:grid-cols-4">
         <StatCard label="Product" value={selectedProductName || "None"} subtext="Current selection" />

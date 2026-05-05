@@ -22,8 +22,8 @@ function LoginPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md rounded-md border border-slate-200 bg-white p-5">
-      <h2 className="text-lg font-semibold">Business Login</h2>
+    <div className="glass-panel mx-auto max-w-md p-6">
+      <h2 className="text-2xl font-bold tracking-tight">Business Login</h2>
       <p className="mt-1 text-sm text-slate-500">Login to manage products and view insights.</p>
 
       <form onSubmit={submit} className="mt-5 space-y-4">
@@ -32,7 +32,7 @@ function LoginPage() {
           onChange={(event) => setEmail(event.target.value)}
           type="email"
           placeholder="Email"
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          className="field"
           required
         />
         <input
@@ -40,7 +40,7 @@ function LoginPage() {
           onChange={(event) => setPassword(event.target.value)}
           type="password"
           placeholder="Password"
-          className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+          className="field"
           required
         />
 
@@ -48,7 +48,7 @@ function LoginPage() {
 
         <button
           type="submit"
-          className="w-full rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+          className="primary-action w-full"
         >
           Login
         </button>

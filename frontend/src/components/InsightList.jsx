@@ -1,18 +1,18 @@
 function InsightList({ title, items = [], tone = "slate" }) {
   const toneClass = {
-    green: "bg-green-50 text-green-800",
-    red: "bg-red-50 text-red-800",
-    blue: "bg-blue-50 text-blue-800",
-    slate: "bg-slate-50 text-slate-800",
+    green: "border-emerald-100 bg-emerald-50 text-emerald-800 hover:bg-emerald-100",
+    red: "border-rose-100 bg-rose-50 text-rose-800 hover:bg-rose-100",
+    blue: "border-indigo-100 bg-indigo-50 text-indigo-800 hover:bg-indigo-100",
+    slate: "border-slate-100 bg-slate-50 text-slate-800 hover:bg-slate-100",
   }[tone];
 
   return (
-    <section className="rounded-md border border-slate-200 bg-white p-4">
-      <h2 className="mb-3 text-base font-semibold">{title}</h2>
+    <section className="elite-card p-5">
+      <h2 className="mb-3 text-base font-bold">{title}</h2>
       {items.length ? (
         <ul className="space-y-2">
           {items.map((item) => (
-            <li key={item} className={`rounded-md px-3 py-2 text-sm ${toneClass}`}>
+            <li key={item} className={`rounded-md border px-3 py-2 text-sm font-medium transition duration-200 hover:translate-x-1 ${toneClass}`}>
               {item}
             </li>
           ))}

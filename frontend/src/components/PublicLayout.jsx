@@ -2,23 +2,23 @@ import { NavLink, Outlet } from "react-router-dom";
 
 function PublicLayout() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-slate-200 bg-white">
+    <div className="min-h-screen bg-[#F8F9FF] text-slate-900">
+      <header className="sticky top-0 z-20 border-b border-white/70 bg-white/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <NavLink to="/" className="block">
-            <h1 className="text-xl font-semibold">Local Sentiment</h1>
+            <h1 className="text-xl font-bold tracking-tight">Local Sentiment</h1>
             <p className="text-sm text-slate-500">Customer feedback intelligence</p>
           </NavLink>
           <nav className="flex gap-2">
             <NavLink
               to="/login"
-              className="rounded-md bg-slate-100 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200"
+              className="secondary-action px-3"
             >
               Login
             </NavLink>
             <NavLink
               to="/signup"
-              className="rounded-md bg-slate-900 px-3 py-2 text-sm font-medium text-white hover:bg-slate-800"
+              className="primary-action px-3"
             >
               Signup
             </NavLink>

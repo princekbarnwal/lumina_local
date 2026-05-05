@@ -34,35 +34,38 @@ function CustomerReviewPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 px-4 py-8 text-slate-900">
-      <main className="mx-auto max-w-md rounded-md border border-slate-200 bg-white p-5">
-        <h1 className="text-xl font-semibold">Rate Your Experience</h1>
-        <p className="mt-1 text-sm text-slate-500">Product #{productId}</p>
+    <div className="min-h-screen bg-[#F8F9FF] px-4 py-8 text-slate-900">
+      <main className="glass-panel mx-auto max-w-md p-6">
+        <div className="mb-5 rounded-lg bg-slate-950 p-5 text-white">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-indigo-200">Local Sentiment</p>
+          <h1 className="mt-2 text-2xl font-extrabold">Rate Your Experience</h1>
+          <p className="mt-1 text-sm text-slate-300">Product #{productId}</p>
+        </div>
 
         <form onSubmit={submitReview} className="mt-5 space-y-4">
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-700">Stars</span>
+            <span className="mb-2 block text-sm font-bold text-slate-700">Stars</span>
             <RatingInput value={rating} onChange={setRating} />
           </label>
 
           <label className="block">
-            <span className="mb-1 block text-sm font-medium text-slate-700">Comment</span>
+            <span className="mb-1 block text-sm font-bold text-slate-700">Comment</span>
             <textarea
               value={comment}
               onChange={(event) => setComment(event.target.value)}
               rows="4"
               placeholder="Write a short review"
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+              className="field"
             />
           </label>
 
           <label className="block">
-            <span className="mb-1 block text-sm font-medium text-slate-700">Phone or email</span>
+            <span className="mb-1 block text-sm font-bold text-slate-700">Phone or email</span>
             <input
               value={userIdentifier}
               onChange={(event) => setUserIdentifier(event.target.value)}
               placeholder="Used only to avoid duplicate reviews"
-              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
+              className="field"
               required
             />
           </label>
@@ -72,7 +75,7 @@ function CustomerReviewPage() {
 
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+            className="primary-action w-full"
           >
             <Send className="h-4 w-4" />
             Submit Review
