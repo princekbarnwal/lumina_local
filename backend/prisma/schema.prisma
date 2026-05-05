@@ -17,20 +17,20 @@ model User {
 }
 
 model Shop {
-  id       Int       @id @default(autoincrement())
-  name     String
-  ownerId  Int
+  id      Int    @id @default(autoincrement())
+  name    String
+  ownerId Int
 
   owner    User      @relation(fields: [ownerId], references: [id])
   products Product[] // 👈 ADD THIS
 }
 
 model Product {
-  id      Int    @id @default(autoincrement())
-  name    String
-  shopId  Int
+  id     Int    @id @default(autoincrement())
+  name   String
+  shopId Int
 
-  shop    Shop   @relation(fields: [shopId], references: [id])
+  shop    Shop     @relation(fields: [shopId], references: [id])
   reviews Review[]
 }
 
@@ -40,9 +40,12 @@ model Review {
   userIdentifier String
   rating         Int
   comment        String?
+  sentiment      String?
   createdAt      DateTime @default(now())
+  trustScore     Float    @default(1.0)
+  isSpam         Boolean  @default(false)
 
-  product        Product  @relation(fields: [productId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
 
   @@unique([productId, userIdentifier])
 }
@@ -51,4 +54,35 @@ model Sentiment {
   id        Int    @id @default(autoincrement())
   reviewId  Int
   sentiment String
+}
+
+model InsightReport {
+  id             Int       @id @default(autoincrement())
+  scope          String
+  scopeId        Int
+  reviewCount    Int
+  latestReviewAt DateTime?
+  report         Json
+  source         String
+  prompt         String?
+  model          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([scope, scopeId])
+}
+
+model DailyMetrics {
+  id            Int      @id @default(autoincrement())
+  scope         String
+  scopeId       Int
+  date          DateTime
+  avgRating     Float
+  reviewCount   Int
+  positiveCount Int
+  neutralCount  Int
+  negativeCount Int
+  createdAt     DateTime @default(now())
+
+  @@unique([scope, scopeId, date])
 }

@@ -1,0 +1,32 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Large local ML model files
+ml-service/models/*
+!ml-service/models/.gitkeep
+
+# Uploads and generated files
+backend/uploads/
+dist/
+build/
+coverage/
+
+# OS and IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
