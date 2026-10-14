@@ -2,6 +2,23 @@
 
 Full-stack local sentiment app with a Node.js backend, Flask ML sentiment service, GenAI reporting, trend alerts, and a React dashboard frontend.
 
+# Lumina Local
+
+A customer-review and sentiment platform for local shops. Customers leave a rating and comment by scanning a QR code, and shop owners get a dashboard with sentiment breakdowns, trend alerts and AI-generated summaries of what customers like and what to fix.
+
+## Features
+- QR-based review page for each product, with no login for customers
+- Trust score and spam flag calculated for every review
+- Sentiment (positive / neutral / negative) from a Flask service, with reviews still saved if it is down
+- Trend alerts for falling ratings, rising negative feedback and review-volume spikes
+- GenAI reports for products and shops, cached until a new review arrives, with a rule-based fallback if the LLM fails
+- JWT-protected business dashboard built with React, Vite and Tailwind
+
+## Architecture
+React dashboard → Node/Express API (Prisma + PostgreSQL) → Flask sentiment service. The API also calls an LLM to generate reports.
+
+The sentiment service currently uses VADER. Upgrading it to a fine-tuned transformer model is the next step.
+
 ## Project Structure
 
 ```text
